@@ -54,7 +54,7 @@ def setupFile(fileName):    #Generates a setup file for mkspk
 
     if choice == 'y' or choice == '':
         f = open(fileName[:-4] + '.setup', "w+")
-        #Enter Setup File Defualts Here:
+        #Enter Setup File Defaults Here:
         f.write("\\begindata\n")
         f.write("\tINPUT_DATA_TYPE\t\t= 'TL_ELEMENTS'\n")
         f.write("\tOUTPUT_SPK_TYPE\t\t= 10\n")
