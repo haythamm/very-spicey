@@ -32,15 +32,16 @@ def noradGrab():    #Prompts user for and stores norad number.
         norad = 25544
     return norad
 
-def pullAndSave(norad,st): #pulls tle for given norad and saves as a file with date and time included
+def pullAndSave(norad,st):      #pulls tle for given norad and saves as a file with date and time included
     print("Pulling TLE Data...")
-    data = st.tle_latest(norad_cat_id=[norad], format='tle') #Saves pulled data in var
+    data = st.tle_latest(norad_cat_id=[norad], format='tle') #saves pulled data in var
     print("Writing to file...")
     timestr = time.strftime("_%Y-%m-%d_%H-%M-%S")
     with open('tle_' + str(norad) + timestr + '.tle', 'w') as fp:
         for line in data:   #for every line in data var...
             # fp.write(line + '\n')
             fp.write(line)  #...write a line in the file (this can be manipulated to change formatting)
+            
     fileName = 'tle_' + str(norad) + timestr + '.tle'
     print("File Ready!")
     print("The new TLE file is called " + fileName)
@@ -73,6 +74,7 @@ def setupFile(fileName):    #Generates a setup file for mkspk
 
         print("Creating Setup File...")
         f.close()   #closes the file
+        
     if choice == 'n':
         print("Please enter your data for the setup file: ")
         print("(No need to enter \' before or after a value)")
@@ -103,18 +105,18 @@ def setupFile(fileName):    #Generates a setup file for mkspk
 
         print("Creating Setup File...")
         f.close()   #closes the file
+        
     setupFileName = fileName[:-4] + ".setup"
     print("Setup File Created!")
     print("The new Setup file is called " + setupFileName)
     return setupFileName
 
-def convertBsp(fileName): # asks to convert to bsp, then converts if requested
+def convertBsp(fileName):   # asks to convert to bsp, then converts if requested
     choice = input("Would you like to convert the TLE file to a BSP? (y/n)")
     while choice != 'y' and choice != 'n':  #asks again if input is invalid
         choice = input("Invalid input, please enter 'y' or 'n': ")
 
     if choice == 'y':
-
         setupFileName = setupFile(fileName)
         print("Converting to BSP...")
         #mkspk [-setup newFileName]
