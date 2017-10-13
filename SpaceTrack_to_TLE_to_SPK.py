@@ -49,10 +49,10 @@ def pullAndSave(norad,st):      #pulls tle for given norad and saves as a file w
 
 def setupFile(fileName):    #Generates a setup file for mkspk
     choice = input("Would you like to use the default setup file configuration? (y/n)")
-    while choice != 'y' and choice != 'n':  # asks again if input is invalid
+    while choice != 'y' and choice != 'n' and choice != '':  # asks again if input is invalid
         choice = input("Invalid input, please enter 'y' or 'n': ")
 
-    if choice == 'y':
+    if choice == 'y' or choice == '':
         f = open(fileName[:-4] + '.setup', "w+")
         #Enter Setup File Defualts Here:
         f.write("\\begindata\n")
@@ -113,10 +113,10 @@ def setupFile(fileName):    #Generates a setup file for mkspk
 
 def convertBsp(fileName):   # asks to convert to bsp, then converts if requested
     choice = input("Would you like to convert the TLE file to a BSP? (y/n)")
-    while choice != 'y' and choice != 'n':  #asks again if input is invalid
+    while choice != 'y' and choice != 'n' and choice != '':  #asks again if input is invalid
         choice = input("Invalid input, please enter 'y' or 'n': ")
 
-    if choice == 'y':
+    if choice == 'y' or choice == '':
         setupFileName = setupFile(fileName)
         print("Converting to BSP...")
         #mkspk [-setup newFileName]
