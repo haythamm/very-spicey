@@ -1,0 +1,9 @@
+\begindata
+   KERNELS_TO_LOAD=(
+   'kernels/ISS/ISS.bsp',
+   'kernels/CityImages.bsp',
+   'kernels/leap_seconds/naif0011.tls',
+   'kernels/pck/pck00010.tpc',
+   'kernels/geophysical.ker',
+   'kernels/CityImages.tf')
+\begintext
