@@ -3,7 +3,18 @@ from plotly.offline import init_notebook_mode, plot
 from plotly.graph_objs import Scatter3d, Line, Data, Layout
 import spiceypy as spice
 import math
+import sys, os
 
+# Disable Printing
+def block_print():
+    sys.stdout = open(os.devnull, 'w')
+
+# Restore Printing
+def enable_print():
+    sys.stdout = sys.__stdout__
+    
+block_print()
+    
 init_notebook_mode()
 
 spice.furnsh("kernels/ISS/ISS.bsp")
@@ -137,7 +148,7 @@ for i in range(len(The_times)):
 
 #for i in range(spice.wncard(MI_result)):
 #    MI_times.append(np.linspace(*spice.wnfetd(MI_result, i), step, endpoint=False))
-
+enable_print()
 #Displaying Access Times
 print("ASU Access Times:")
 for GS_time in GS_times:
