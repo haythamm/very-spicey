@@ -149,8 +149,8 @@ def main():
     filename = pull_save_tle(norad, st)  # pulls tle for given norad and saves
     choice = convert_bsp(filename)
     if choice == "" or choice == 'y':
-        bspName = str(filename[:-4] + ".bsp")
-        return bspName
+        bsp_name = str(filename[:-4] + ".bsp")
+        return bsp_name
 
 
 main()
