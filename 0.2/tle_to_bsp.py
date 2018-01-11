@@ -21,8 +21,8 @@ def login():  # Logs user into space-track, using either default or temporary ac
     elif choice == 'y' or choice == '':  # If choice entered is y or blank, login with default
         print("Logging into Space-Track using default account...")
         print("Authenticating...")
-        st_user = 'hmouti@asu.edu'  # Enter default spacetrack username here
-        st_pass = 'WelcomeToTheGalaxy5'  # Enter default spacetrack password here
+        st_user = 'username'  # Enter default spacetrack username here
+        st_pass = 'password'  # Enter default spacetrack password here
         st = SpaceTrackClient(identity=st_user, password=st_pass)
         print("Authentication Complete!")
     return st
