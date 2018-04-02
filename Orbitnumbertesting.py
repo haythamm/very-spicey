@@ -281,16 +281,16 @@ def run_start_stop():
 
 def builder(start, stop):
     duration = stop-start
-    add("SetQbo", start-100)
-    add("LatLongDataCommand", start-10)
-    add("sband_on", start-7)
-    add("turn_on_pa", start-6)
-    add("sync_mode", start-5)
-    add("populate_transm_buffer", start-5)  # -
-    add("data_mode", start-5)   # -
-    add("transmit", start)
-    add("stop_transmit", stop)
-    add("sband_off", stop + 1)
+    add("SetQbo", spice.et2utc(start-100, 'C', 4))
+    add("LatLongDataCommand", spice.et2utc(start - 10, 'C', 4))
+    add("sband_on", spice.et2utc(start - 7, 'C', 4))
+    add("turn_on_pa", spice.et2utc(start - 6, 'C', 4))
+    add("sync_mode", spice.et2utc(start - 5, 'C', 4))
+    add("populate_transm_buffer", spice.et2utc(start - 5, 'C', 4))# -
+    add("data_mode", spice.et2utc(start - 5, 'C', 4)) # -
+    add("transmit", spice.et2utc(start, 'C', 4))
+    add("stop_transmit", spice.et2utc(stop, 'C', 4))
+    add("sband_off", spice.et2utc(stop + 1, 'C', 4))
     print_times(start, stop)
 
 
@@ -332,8 +332,8 @@ with open('kernels/Orbitnumbertest1.txt') as file:
     next(file)
     next(file)
     for line in file:
-        print(spice.str2et(line[7:27]))
-        print(spice.str2et(line[51:71]))
+        #print(spice.str2et(line[7:27]))
+        #print(spice.str2et(line[51:71]))
         print(line)
         for time in times_in_out:
             if time[0] >= spice.str2et(line[7:27]) and time[0] <= spice.str2et(line[51:71]):
