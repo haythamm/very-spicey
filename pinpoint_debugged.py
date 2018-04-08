@@ -6,9 +6,9 @@ _  ____/_  __  / / /_/ /_  /___  _  /|  / __/ /  _    |
 /_/     /_/ /_/  \____/ /_____/  /_/ |_/  /___/  /_/|_|
 
 Pinpoint Wrapper
-Version: 0.5
+Version: 1.0
 
-Developed by Haytham M
+Developed by Haytham M & Kolby D
 """
 
 import os
